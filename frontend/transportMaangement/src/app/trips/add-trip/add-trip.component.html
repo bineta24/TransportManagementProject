@@ -1,0 +1,44 @@
+<div>
+    <div class="submit-form">
+      <div >
+        <div class="form-group">
+          <label for="fromm">From</label>
+          <input
+            type="text"
+            class="form-control"
+            id="fromm"
+            required
+            [(ngModel)]="trip.fromm"
+           
+            name="fromm"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="too">To</label>
+          <input
+            class="form-control"
+            id="too"
+            required
+            [(ngModel)]="trip.too"
+            
+            name="too"
+          />
+        </div>
+      
+   
+          <!--<div class="form-group">
+                <label for="id">truck</label>
+                <select [(ngModel)]="trip.truck " name="truck" class="form-control" >
+                    
+                    <option *ngFor="let t of trucks" [ngValue]="t.id">{{ t.no}}</option>
+                  
+                </select>
+              </div>-->
+  
+        <button (click)="saveTrip()" class="btn btn-success">Submit</button>
+      </div>
+  
+      
+    </div>
+  </div>

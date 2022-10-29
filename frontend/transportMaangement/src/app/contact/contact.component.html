@@ -1,0 +1,37 @@
+<div class="con_bg">
+    <div class="container-fluid">
+       <div class="row">
+          <div class="col-md-5">
+             <form id="request" class="main_form">
+                <div class="row">
+                   <div class="col-md-12 ">
+                      <input class="contactus" placeholder="Name" type="type" name="Name"  [(ngModel)]="contact.name "> 
+                   </div>
+                   <div class="col-md-12">
+                      <input class="contactus" placeholder="Email" type="type" name="Email" [(ngModel)]="contact.email "> 
+                   </div>
+                   <div class="col-md-12">
+                      <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number" [(ngModel)]="contact.phone ">                          
+                   </div>
+                   <div class="col-md-12">
+                      <input class="contactusmess" placeholder="Message" type="type" name="message" [(ngModel)]="contact.message ">
+                   </div>
+                   <div class="col-md-12">
+                      <button class="send_btn" (click)="saveContact()">Send</button>
+                   </div>
+                   
+                </div>
+             </form>
+             
+          </div>
+          <div class="col-md-7">
+             <div class="co_tru">
+                <figure><img src="../assets/images/truc4.png" alt="#"/></figure>
+             </div>
+          </div>
+          <div *ngIf="submitted==true"> {{message}}</div>
+          
+          
+       </div>
+    </div>
+ </div>

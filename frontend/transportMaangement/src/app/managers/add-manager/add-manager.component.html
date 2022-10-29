@@ -1,0 +1,125 @@
+<div id="addManagerModal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form *ngIf="!isSuccessful"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate>
+          <div class="modal-header">						
+            <h4 class="modal-title">Add Manager</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+          <div class="modal-body">					
+            <div class="form-group">
+              <label>Firstname</label>
+              <input type="text" class="form-control" name="firstname"
+              [(ngModel)]="form.firstname"
+              required
+              minlength="3"
+              #firstname="ngModel" />
+
+              <div class="alert-danger" *ngIf="firstname.errors && f.submitted">
+                <div *ngIf="firstname.errors.required"> Firstname is required</div>
+                <div *ngIf="firstname.errors.minlength">
+                  Firstname must be at least 3 characters
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+                <label>Lastname</label>
+                <input type="text" class="form-control" name="lastname"
+                [(ngModel)]="form.lastname"
+                required
+                minlength="3"
+                #lastname="ngModel" />
+  
+                <div class="alert-danger" *ngIf="lastname.errors && f.submitted">
+                    <div *ngIf="lastname.errors.required"> Lastname is required</div>
+                    <div *ngIf="lastname.errors.minlength">
+                      Lastname must be at least 3 characters
+                    </div>
+                  </div>
+              </div>
+    
+
+        
+            <div class="form-group">
+              <label>Username</label>
+              <input type="text" class="form-control"  name="username"
+              [(ngModel)]="form.username"
+              required
+              minlength="3"
+              maxlength="20"
+              #username="ngModel" /> 
+              <div class="alert-danger" *ngIf="username.errors && f.submitted">
+                <div *ngIf="username.errors.required">Username is required</div>
+                <div *ngIf="username.errors.minlength">
+                  Username must be at least 3 characters
+                </div>
+                <div *ngIf="username.errors.maxlength">
+                  Username must be at most 20 characters
+                </div>
+              </div>
+              
+            </div>
+
+
+
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" 
+            name="email"
+            [(ngModel)]="form.email"
+            required
+            email
+            #email="ngModel" /> 
+            <div class="alert-danger" *ngIf="email.errors && f.submitted">
+                <div *ngIf="email.errors.required">Email is required</div>
+                <div *ngIf="email.errors.email">
+                  Email must be a valid email address
+                </div>
+              </div>
+            
+          </div>
+
+
+          
+
+          <div class="form-group">
+            <label>Password</label>
+            <input
+            type="password"
+            class="form-control"
+            name="password"
+            [(ngModel)]="form.password"
+            required
+            minlength="6"
+            #password="ngModel"
+          />
+          <div class="alert-danger" *ngIf="password.errors && f.submitted">
+            <div *ngIf="password.errors.required">Password is required</div>
+            <div *ngIf="password.errors.minlength">
+              Password must be at least 6 characters
+            </div>
+          </div>
+            
+          </div>
+                          
+          </div>
+          <div class="modal-footer">
+            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+            <input type="submit" class="btn btn-success" value="Add">
+          </div>
+          <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+            Signup failed!<br />{{ errorMessage }}
+          </div>
+        </form>
+
+        <div class="alert alert-success" *ngIf="isSuccessful">
+            manager created
+          </div>
+      </div>
+    </div>
+  </div>

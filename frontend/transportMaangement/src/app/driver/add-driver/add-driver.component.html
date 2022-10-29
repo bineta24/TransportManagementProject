@@ -1,0 +1,57 @@
+<div>
+    <div class="submit-form">
+      <div >
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            required
+            [(ngModel)]="driver.name"
+           
+            name="name"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input
+            class="form-control"
+            id="phone"
+            required
+            [(ngModel)]="driver.phone"
+            
+            name="phone"
+          />
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              class="form-control"
+              id="email"
+              required
+              [(ngModel)]="driver.email"
+              
+              name="email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input
+              class="form-control"
+              id="address"
+              required
+
+              [(ngModel)]="driver.address" 
+              
+              name="address"
+            />
+          </div>
+  
+        <button (click)="saveDriver()" class="btn btn-success">Submit</button>
+      </div>
+  
+      
+    </div>
+  </div>

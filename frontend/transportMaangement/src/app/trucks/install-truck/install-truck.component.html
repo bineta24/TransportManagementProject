@@ -1,0 +1,66 @@
+<div>
+    <div class="submit-form">
+      <div >
+        <div class="form-group">
+          <label for="model">Model</label>
+          <input
+            type="text"
+            class="form-control"
+            id="model"
+            required
+            [(ngModel)]="truck.model"
+           
+            name="model"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="no">No</label>
+          <input
+            class="form-control"
+            id="no"
+            required
+            [(ngModel)]="truck.no"
+            
+            name="no"
+          />
+        </div>
+        <div class="form-group">
+            <label for="capacity">Capacity</label>
+            <input
+              class="form-control"
+              id="capacity"
+              required
+              [(ngModel)]="truck.capacity"
+              
+              name="capacity"
+            />
+          </div>
+          <div class="form-group">
+            <label for="insurance">Insurance</label>
+            <input
+              class="form-control"
+              id="insurance"
+            
+              required
+
+              [(ngModel)]="truck.insurance" 
+              
+              name="insurance"
+            />
+          </div>
+          <div class="form-group">
+                <label for="id">branch</label>
+                <select [(ngModel)]="truck.branch " name="branch" class="form-control" >
+                    
+                    <option *ngFor="let b of branch" [ngValue]="b">{{ b.name }}</option>
+                  
+                </select>
+              </div>
+  
+        <button (click)="saveTruck()" class="btn btn-success">Submit</button>
+      </div>
+  
+      
+    </div>
+  </div>

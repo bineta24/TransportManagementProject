@@ -1,0 +1,100 @@
+
+
+<!--<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            required
+            [(ngModel)]="branch.name"
+            name="title"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="country">Country</label>
+          <input
+            class="form-control"
+            id="country"
+            required
+            [(ngModel)]="branch.country"
+            name="country"
+          />
+        </div>
+
+        <div class="form-group">
+            <label for="country">City</label>
+            <input
+              class="form-control"
+              id="city"
+              required
+              [(ngModel)]="branch.city"
+              name="city"
+            />
+          </div>
+
+
+          <div class="form-group">
+            <label for="user_id">manager</label>
+            <select class="form-control" >
+                
+                <option *ngFor="let manager of manager" value="user_id">{{ manager.firstname }}  {{ manager.lastname }}</option>
+              
+            </select>
+          </div>
+
+  
+       <button  (click)="saveBranch(id)" class="btn btn-success">Submit</button>
+      </div>
+  
+     
+    </div>
+  </div> -->
+
+
+
+
+  <div>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form>
+          <div class="modal-header">						
+            <h4 class="modal-title">Add Branch</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+          <div class="modal-body">					
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" [(ngModel)]="branch.name"  name="name" class="form-control"required>
+            </div>
+            <div class="form-group">
+              <label>Country</label>
+              <input type="email" class="form-control"   [(ngModel)]="branch.country" name="country" required>
+            </div>
+            <div class="form-group">
+              <label>City</label>
+              <input class="form-control" [(ngModel)]="branch.city" name="city" required/>
+            </div>
+
+            <div class="form-group">
+                <label for="id">manager</label>
+                <select [(ngModel)]="branch.manager " name="manager" class="form-control" >
+                    
+                    <option *ngFor="let m of manager" [ngValue]="m">{{ m.firstname }}  {{ m.lastname }}</option>
+                  
+                </select>
+              </div>
+                          
+          </div>
+          <div class="modal-footer">
+            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+            <input type="submit" class="btn btn-success" value="Add" (click)="saveBranch()">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
