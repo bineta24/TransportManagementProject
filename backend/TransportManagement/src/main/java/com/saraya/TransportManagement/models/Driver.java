@@ -1,5 +1,6 @@
 package com.saraya.TransportManagement.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -25,8 +26,7 @@ public class Driver {
     private String email;
     private String address;
     @OneToOne
-    @JoinColumn(name = "truck_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
+   @JsonIgnore
     private Truck truck;
 
 

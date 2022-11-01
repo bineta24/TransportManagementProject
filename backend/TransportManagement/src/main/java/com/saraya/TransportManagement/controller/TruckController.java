@@ -92,6 +92,10 @@ public class TruckController {
     public ResponseEntity<Truck> createTruck(@RequestBody Truck truckRequest) {
         truckRequest.setStatus(false);
         Truck truck = repo.save(truckRequest);
+        Branch branch = truckRequest.getBranch();
+        //branch.setTruck((List<Truck>) truck);
+
+        branchRepository.save(branch);
 
         return new ResponseEntity<>(truck, HttpStatus.CREATED);
     }

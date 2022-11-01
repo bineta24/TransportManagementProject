@@ -38,5 +38,9 @@ export class TruckService {
     return this.http.get<Truck[]>(`${baseUrl}/truckNo?no=${no}`)
    
   }
+
+  getTruckByBranchId(id: number): Observable<Truck>{
+    return this.http.get(baseUrl +'/truck/' + `${id}` + '/truck')
+  }
   
 }

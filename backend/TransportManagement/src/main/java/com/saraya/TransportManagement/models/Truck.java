@@ -1,5 +1,6 @@
 package com.saraya.TransportManagement.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -30,8 +31,7 @@ public class Truck {
     private boolean status;
 
     @ManyToOne
-    @JoinColumn(name = "branch_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    //@JsonIgnore
     private Branch branch;
 
 

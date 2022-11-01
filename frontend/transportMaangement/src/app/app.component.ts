@@ -2,9 +2,11 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { BoardManagerComponent } from './managers/managerList/board-manager.component';
 import { Branch } from './models/branch';
+import { Truck } from './models/truck';
 import { User } from './models/user';
 import { BranchService } from './_services/branch.service';
 import { TokenStorageService } from './_services/token-storage.service';
+import { TruckService } from './_services/truck.service';
 
 @Component({
   selector: 'app-root',
@@ -22,14 +24,29 @@ export class AppComponent {
   id?: 0;
 
 
-  currentUser: User = new User;
+  currentUser: User = {
+    branch:{
+      name:'',
+      id:0
+    }
+  };
 
 
-  currentBranch: Branch = {
+  /*currentBranch: Branch = {
     name: '',
     country: '',
     city: '',
     manager: {
+  
+    }
+  }*/
+
+  currentTruck: Truck = {
+    no: '',
+   
+  
+    branch: {
+      id :0
   
     }
   }
@@ -37,7 +54,7 @@ export class AppComponent {
 
 
 
-  constructor(private tokenStorageService: TokenStorageService, private router: Router,private branchService: BranchService) { }
+  constructor(private tokenStorageService: TokenStorageService, private router: Router,private branchService: BranchService, private truckService: TruckService) { }
 
   ngOnInit(): void {
 
@@ -70,8 +87,21 @@ export class AppComponent {
     }
   }
 
+  getTruckByBranchId(id:number):void{
+    this.truckService.getTruckByBranchId(this.currentTruck.branch?.id)
+    .subscribe(
+      data => {
+        this.currentTruck = data;
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      });
 
-  getBranchByUserId(id:number):void{
+  }
+
+
+ /* getBranchByUserId(id:number):void{
     this.branchService.getBranchByuserId(this.currentBranch.manager?.id)
     .subscribe(
       data => {
@@ -82,7 +112,7 @@ export class AppComponent {
         console.log(error);
       });
 
-  }
+  }*/
 }
 
 

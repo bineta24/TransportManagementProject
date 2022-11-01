@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Truck } from 'src/app/models/truck';
+import { User } from 'src/app/models/user';
 import { TruckService } from 'src/app/_services/truck.service';
 import { TokenStorageService } from '../../_services/token-storage.service';
 
@@ -18,10 +19,17 @@ export class TruckComponent implements OnInit {
   showManagerBoard = false;
   username?: string;
 
+  currentUser: User = {
+    branch:{
+      name:''
+    }
+  };
+
  
 
   trucks: any [] =[]
 
+ 
   no= '';
 
   currentIndex = -1;
@@ -31,6 +39,10 @@ export class TruckComponent implements OnInit {
   ngOnInit(): void {
 
     this.retrievetruck();
+
+    this.currentUser = this.tokenStorageService.getUser();
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+    console.log("first")
     this.isLoggedIn = !!this.tokenStorageService.getToken();
 
     if (this.isLoggedIn) {
@@ -56,6 +68,8 @@ export class TruckComponent implements OnInit {
         });
   }
 
+ 
+
   searchNo(): void {
     this.truckService.findByNo(this.no)
       .subscribe(
@@ -73,4 +87,19 @@ export class TruckComponent implements OnInit {
     window.location.reload();
     this.router.navigate(['/home']);
   }
+
+
+  /*getTruckByBranchId(id:number):void{
+    this.truckService.getTruckByBranchId(this.trucks.branch?.id)
+    .subscribe(
+      data => {
+        this.currentTruck = data;
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      });
+
+  }*/
+
 }

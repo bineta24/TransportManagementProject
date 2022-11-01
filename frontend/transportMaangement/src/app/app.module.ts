@@ -32,6 +32,12 @@ import { DriverDetailsComponent } from './driver/driver-details/driver-details.c
 import { TripListComponent } from './trips/trip-list/trip-list.component';
 import { AddTripComponent } from './trips/add-trip/add-trip.component';
 import { AddDriverComponent } from './driver/add-driver/add-driver.component';
+import { AboutComponent } from './about/about.component';
+import { ServiceComponent } from './service/service.component';
+import { SingleComponent } from './single/single.component';
+import { PriceComponent } from './price/price.component';
+import { BlogComponent } from './blog/blog.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -63,6 +69,12 @@ import { AddDriverComponent } from './driver/add-driver/add-driver.component';
     TripListComponent,
     AddTripComponent,
     AddDriverComponent,
+    AboutComponent,
+    ServiceComponent,
+    SingleComponent,
+    PriceComponent,
+    BlogComponent,
+    HeaderComponent,
   
   ],
   imports: [

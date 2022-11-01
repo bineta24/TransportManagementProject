@@ -76,10 +76,15 @@ import java.util.List;
 
            /* User manager = repo.findById(userId)
                     .orElseThrow(() -> new ResourceNotFoundException("Manager not found"));*/
-            log.info(branchRequest.toString());
+            log.info("Branch ==> "+branchRequest.toString());
 
 
             Branch branch = branchRepository.save(branchRequest);
+            User user = branchRequest.getManager();
+            user.setBranch(branch);
+            repo.save(user);
+
+            log.info("Branch ==> "+branch.toString());
 
             return new ResponseEntity<>(branch, HttpStatus.CREATED);
         }

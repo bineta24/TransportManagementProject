@@ -1,5 +1,6 @@
 package com.saraya.TransportManagement.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import org.hibernate.annotations.OnDelete;
@@ -9,7 +10,6 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-
 @Table(name = "branch")
 @AllArgsConstructor
 @Data
@@ -17,7 +17,6 @@ import java.util.List;
 @Getter
 @Setter
 
-@ToString
 
 public class Branch  {
 
@@ -33,18 +32,12 @@ public class Branch  {
 
     @Column(name = "city")
     private String city;
-
-  @OneToOne(mappedBy = "branch")
-    @JoinColumn(name = "user_id")
-    @JsonIgnoreProperties
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private User manager;
-
     @OneToMany
-    @JoinColumn(name = "truck_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Truck> truck;
 
+    @OneToOne
+  //@JsonIgnore
+    private User manager;
 
 
 

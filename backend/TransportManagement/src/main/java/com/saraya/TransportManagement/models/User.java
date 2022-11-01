@@ -1,5 +1,6 @@
 package com.saraya.TransportManagement.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 import org.hibernate.annotations.OnDelete;
@@ -62,9 +63,7 @@ public class User {
     private Set<Role> roles = new HashSet<>();
 
     @OneToOne
-    @JoinColumn(name = "branch_id")
-    @JsonIgnoreProperties
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
     private Branch branch;
 
 
@@ -74,7 +73,7 @@ public class User {
         this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
-        this.branch = branch;
+
 
     }
 

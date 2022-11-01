@@ -2,8 +2,8 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
-        <img src="assets/admin/img/logo.png" alt="">
-        <span class="d-none d-lg-block">SarayaTrans</span>
+        <i class="fa fa-truck mr-2"></i>
+      <span class="d-none d-lg-block text-primary">SarayaTrans</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -225,59 +225,46 @@
     </nav><!-- End Icons Navigation -->
   
   </header>
-  <div class="col-md-8 offset-md-3"><section   id="vehicles" class="vehicles">
-     <div class="container">
-        <div class="row">
-           <div class="col-md-12">
-              <div class="titlepage">
-                 <h2> Drivers</h2>
-               <button routerLink="/addriver" class="mt-5 bg-success text-white">Add Driver</button>
-                 <p></p>
-              </div>
-           </div>
-           
-        </div>
-     </div>
-     <div id="veh" >
-        <div class="carousel-inner">
-           <div class="carousel-item active">
-              <div class="container">
-                 <div class="carousel-caption">
-                    <div  class="row">
-                       <div  *ngFor="let d of drivers; let i = index" [class.active]="i == currentIndex" class="col-md-4" >
-                         
-                          <div  class="vehicles_truck">
-                           
-                           <figure><img src="../assets/admin/img/profile-img.jpg" alt="#"/></figure>
  
-                           <p class="text-dark">{{d.name}}</p>
-                            <p class="text-dark" >{{d.phone}}</p>
-                            <p class="text-dark" >{{d.email}}</p>
-                            <p class="text-dark" >{{d.address}}</p>
-                            
-                            
-                           
-                            <button
-                            type="submit"
-                            class="badge badge-primary mb-2"
-                            routerLink="/driver/{{d.id}}"
-                          >
-                          Details
-                            </button>
-                           
-                                         
-                          </div>
-                          <br>
-                       </div>
-             
-                    </div>
-                 </div>
-              </div>
-           </div>
-          
-           
-        </div>
-     </div>
+
+
+ <div class="col-md-8 offset-md-3 container pt-5 ">
+
+  
+  <div class="text-center pb-2 my-5">
+      <h6 class="text-primary text-uppercase font-weight-bold mt-5">Drivers</h6>
+      <button routerLink="/addriver" class="text-uppercase mb-4 text-primary">Add Driver</button>
+  </div>
+
+  <div  class="row my-5">
      
-  </section>
- </div>
+      
+      
+      <div *ngFor="let d of drivers; let i = index" [class.active]="i == currentIndex"  class="col-lg-3   col-md-6" >
+          <div class=" position-relative  border-0 mb-5 mr-3">
+          
+      
+              <img class="card-img-top" src="../assets/admin/img/profile-img.jpg" alt="#"/>
+              <div class="card-body text-center p-0">
+                  <div class=" flex-column justify-content-center bg-secondary">
+                      <h5 class="font-weight-bold">{{d.name}}</h5>
+                      <h5 class="font-weight-bold"> {{d.phone }}</h5>
+                      <h5 class="font-weight-bold">{{d.email}}</h5>
+                     
+                      <button
+                      type="submit"
+                      class="badge badge-primary mb-2"
+                      routerLink="/driver/{{d.id}}"
+                    >
+                    Details
+                      </button>
+                  </div>
+                 
+              </div>
+          </div>
+      </div>
+  </div>
+
+</div>
+
+

@@ -19,6 +19,7 @@ export class TripListComponent implements OnInit {
 
  
   trips: any [] =[]
+  currentIndex = -1;
 
  
 
